@@ -1,5 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+h1 {
+  color: #96a0be;
+  margin-bottom: 50px;
+  font-size: 3rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 20px;
+}
+
+a {
+  background-color: #fff;
+  margin-bottom: 50px;
+  padding: 20px 40px;
+  font-size: 2rem;
+  color: #4f535f;
+  border-radius: 20px;
+  transition: all 0.2s ease-in;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover {
+  background-color: #4f535f;
+  color: #fff;
 }

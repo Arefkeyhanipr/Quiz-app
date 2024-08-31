@@ -9,9 +9,9 @@
   border-radius: 50%;
   display: inline-block;
   animation: rotation 1.5s linear infinite;
-  /* position: absolute;
+  position: absolute;
   top: 40%;
-  right: 50%; */
+  right: 50%;
 }
 
 @keyframes rotation {
@@ -23,8 +23,8 @@
   }
 }
 
-.container {
-  display: block;
+#container {
+  display: none;
   width: 700px;
 }
 

@@ -3,15 +3,18 @@ import formatData from "./helper.js";
 
 const url =
   "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+
 let formattedData = null;
+
 const correctBonus = 1;
 const loader = document.getElementById("loader");
-
 const container = document.getElementById("container");
-
 const questionText = document.getElementById("question-text");
 const answerList = document.querySelectorAll(".answer-text");
 const scoreText = document.getElementById("score");
+const nextBtn = document.querySelector("#next-button");
+const questionNum = document.querySelector("#question-number");
+console.log(questionNum);
 
 let questinIndex = 0;
 let correctAnswer = null;
@@ -34,6 +37,7 @@ const start = () => {
 };
 
 const showQuestion = () => {
+  questionNum.innerText = questinIndex + 1;
   const { question, answers, correctAnswerIndex } = formattedData[questinIndex];
   correctAnswer = correctAnswerIndex;
   questionText.innerText = question;
@@ -57,8 +61,25 @@ const checkAnswer = (event, index) => {
   }
 };
 
+const nextHandler = () => {
+  questinIndex++;
+  if (questinIndex < formattedData.length) {
+    isAccepted = true;
+    removeClasses();
+    showQuestion();
+  } else {
+    window.location.assign("end.html");
+  }
+};
+
+const removeClasses = () => {
+  answerList.forEach((button) => (button.className = "answer-text"));
+};
 //Event listeners
+
 window.addEventListener("load", fetchData);
+
+nextBtn.addEventListener("click", nextHandler);
 
 answerList.forEach((button, index) => {
   button.addEventListener("click", (event) => checkAnswer(event, index));

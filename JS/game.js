@@ -13,8 +13,8 @@ const questionText = document.getElementById("question-text");
 const answerList = document.querySelectorAll(".answer-text");
 const scoreText = document.getElementById("score");
 const nextBtn = document.querySelector("#next-button");
+const finishBtn = document.querySelector("#finish-button");
 const questionNum = document.querySelector("#question-number");
-console.log(questionNum);
 
 let questinIndex = 0;
 let correctAnswer = null;
@@ -44,7 +44,6 @@ const showQuestion = () => {
   answerList.forEach((button, index) => {
     button.innerText = answers[index];
   });
-  console.log(correctAnswer);
 };
 
 const checkAnswer = (event, index) => {
@@ -68,18 +67,26 @@ const nextHandler = () => {
     removeClasses();
     showQuestion();
   } else {
-    window.location.assign("end.html");
+    finishHandler();
   }
+};
+
+const finishHandler = () => {
+  localStorage.setItem("score", JSON.stringify(score));
+  window.location.assign("end.html");
 };
 
 const removeClasses = () => {
   answerList.forEach((button) => (button.className = "answer-text"));
 };
+
 //Event listeners
 
 window.addEventListener("load", fetchData);
 
 nextBtn.addEventListener("click", nextHandler);
+
+finishBtn.addEventListener("click", finishHandler);
 
 answerList.forEach((button, index) => {
   button.addEventListener("click", (event) => checkAnswer(event, index));

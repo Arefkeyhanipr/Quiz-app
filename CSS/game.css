@@ -125,3 +125,20 @@ h3 {
   background-color: #fe6681;
   border: none;
 }
+
+.endGame {
+  background-color: #c89666 !important;
+  color: white !important;
+  padding: 10px 100px !important;
+  font-size: 1.5rem !important;
+}
+
+.endGame:hover {
+  background-color: #285058 !important;
+  color: #c89666 !important;
+}
+
+#ending-buttons {
+  display: flex;
+  justify-content: space-between;
+}

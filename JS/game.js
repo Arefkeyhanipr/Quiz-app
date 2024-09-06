@@ -12,6 +12,7 @@ const container = document.getElementById("container");
 const questionText = document.getElementById("question-text");
 const answerList = document.querySelectorAll(".answer-text");
 const scoreText = document.getElementById("score");
+const allEndingBtns = document.querySelector("#ending-buttons");
 const nextBtn = document.querySelector("#next-button");
 const finishBtn = document.querySelector("#finish-button");
 const questionNum = document.querySelector("#question-number");
@@ -62,6 +63,14 @@ const checkAnswer = (event, index) => {
 
 const nextHandler = () => {
   questinIndex++;
+
+  if (questinIndex === formattedData.length - 1) {
+    nextBtn.classList.add("endGame");
+    finishBtn.style.display = "none";
+    nextBtn.innerText = "See the result";
+    allEndingBtns.style.justifyContent = "center";
+  }
+
   if (questinIndex < formattedData.length) {
     isAccepted = true;
     removeClasses();

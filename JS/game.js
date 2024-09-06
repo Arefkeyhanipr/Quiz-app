@@ -82,7 +82,7 @@ const nextHandler = () => {
 
 const finishHandler = () => {
   localStorage.setItem("score", JSON.stringify(score));
-  window.location.assign("end.html");
+  window.location.assign("result.html");
 };
 
 const removeClasses = () => {

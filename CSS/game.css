@@ -1,9 +1,7 @@
 #loader {
   width: 100px;
   height: 100px;
-  /* border: 7px solid rgb(188, 183, 183); */
   border: 7px solid #c89666;
-
   border-bottom-color: transparent;
   border-top-color: transparent;
   border-radius: 50%;

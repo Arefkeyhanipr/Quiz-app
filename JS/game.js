@@ -17,6 +17,8 @@ const allEndingBtns = document.querySelector("#ending-buttons");
 const nextBtn = document.querySelector("#next-button");
 const finishBtn = document.querySelector("#finish-button");
 const questionNum = document.querySelector("#question-number");
+const errorText = document.getElementById("error");
+const refreshBtn = document.getElementById("refresh");
 
 let questinIndex = 0;
 let correctAnswer = null;
@@ -25,11 +27,17 @@ let isAccepted = true;
 //functions
 
 const fetchData = async () => {
-  const response = await fetch(url);
-  const json = await response.json();
-  formattedData = formatData(json.results);
-  formatData(json.results);
-  start();
+  try {
+    const response = await fetch(url);
+    const json = await response.json();
+    formattedData = formatData(json.results);
+    formatData(json.results);
+    start();
+  } catch (err) {
+    loader.style.display = "none";
+    errorText.style.display = "block";
+    refreshBtn.style.display = "block";
+  }
 };
 
 const start = () => {

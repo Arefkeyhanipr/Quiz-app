@@ -1,8 +1,9 @@
 //Variables
 import formatData from "./helper.js";
 
-const url =
-  "https://opentdb.com/api.php?amount=10&difficulty=medium&type=multiple";
+const level = localStorage.getItem("level") || "easy";
+
+const url = `https://opentdb.com/api.php?amount=10&difficulty=${level}&type=multiple`;
 
 let formattedData = null;
 
